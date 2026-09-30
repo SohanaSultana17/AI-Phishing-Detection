@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Phishing Detection System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <div class="shield">
+                🛡️
+            </div>
+
+            <h1>AI Phishing Detection System</h1>
+
+            <p>
+                AI-powered URL analysis and risk assessment
+            </p>
+
+        </div>
+
+
+        <!-- URL Input -->
+
+        <div class="card">
+
+            <h2>🔍 Analyze a URL</h2>
+
+            <p class="description">
+                Enter a website URL to check whether it is
+                potentially phishing or legitimate.
+            </p>
+
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="url"
+                    placeholder="https://example.com"
+                    required
+                >
+
+                <button type="submit">
+                    Analyze URL
+                </button>
+
+            </form>
+
+        </div>
+{% if error %}
+
+<div class="error-message">
+
+    ⚠️ {{ error }}
+
+</div>
+
+{% endif %}
+
+        <!-- Result -->
+
+        {% if result %}
+
+        <div class="result-card">
+
+            <h2>Analysis Result</h2>
+
+
+            <div class="url-box">
+
+                <span>Analyzed URL</span>
+
+                <p>
+                    {{ result.url }}
+                </p>
+
+            </div>
+
+
+            <!-- Prediction -->
+
+            {% if result.prediction == "PHISHING" %}
+
+            <div class="status phishing">
+
+                <div class="status-icon">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <h3>PHISHING DETECTED</h3>
+
+                    <p>
+                        This URL shows characteristics associated
+                        with phishing.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="status legitimate">
+
+                <div class="status-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>LEGITIMATE</h3>
+
+                    <p>
+                        No major suspicious URL characteristics
+                        were detected.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+            <!-- Risk Meter -->
+
+<div class="risk-meter">
+
+    <div class="risk-meter-header">
+
+        <span>Risk Level</span>
+
+        <strong>
+            {{ result.risk_score }}/100
+        </strong>
+
+    </div>
+
+
+    <div class="risk-bar">
+
+        <div
+            class="risk-fill"
+            style="width: {{ result.risk_score }}%;">
+        </div>
+
+    </div>
+
+
+    <div class="risk-labels">
+
+        <span>Low</span>
+        <span>Medium</span>
+        <span>High</span>
+        <span>Critical</span>
+
+    </div>
+
+</div>
+
+
+            <!-- Statistics -->
+
+            <div class="stats">
+
+                <div class="stat-box">
+
+                    <span>Risk Score</span>
+
+                    <strong>
+                        {{ result.risk_score }}/100
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <span>Risk Level</span>
+
+                    <strong>
+                        {{ result.risk_level }}
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <span>Phishing Probability</span>
+
+                    <strong>
+                        {{ "%.2f"|format(result.phishing_probability * 100) }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <span>Legitimate Probability</span>
+
+                    <strong>
+                        {{ "%.2f"|format(result.legitimate_probability * 100) }}%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Reasons -->
+
+            <div class="reasons">
+
+                <h3>🔎 Analysis Explanation</h3>
+
+                <ul>
+
+                    {% for reason in result.reasons %}
+
+                    <li>
+                        {{ reason }}
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+<!-- About the System -->
+
+<div class="about-section">
+
+    <h2>About the System</h2>
+
+    <p class="about-description">
+        This system uses Machine Learning and URL-based feature
+        analysis to identify potentially phishing URLs and
+        estimate their associated risk.
+    </p>
+
+
+    <div class="about-cards">
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🤖
+            </div>
+
+            <h3>Machine Learning</h3>
+
+            <p>
+                A Random Forest classification model analyzes
+                URL characteristics to classify URLs as
+                phishing or legitimate.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🔍
+            </div>
+
+            <h3>URL Analysis</h3>
+
+            <p>
+                The system extracts features such as URL length,
+                subdomains, digits, special characters and HTTPS
+                usage.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🛡️
+            </div>
+
+            <h3>Risk Assessment</h3>
+
+            <p>
+                The model probability is converted into a
+                risk score and risk level to make the result
+                easier to understand.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+        <!-- Footer -->
+
+        <div class="footer">
+
+            <p>
+                AI-Based Phishing Website Detection and Risk Analysis System
+            </p>
+
+            <p>
+                Machine Learning • URL Feature Analysis • Risk Assessment
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

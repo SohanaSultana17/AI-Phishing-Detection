@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+
+dataset/phishing_urls.csv
+dataset/selected_features.csv
+dataset/url_only_features.csv

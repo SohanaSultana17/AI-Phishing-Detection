@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f7;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+.container {
+    width: 92%;
+    max-width: 950px;
+    margin: 45px auto;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+
+.shield {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+
+.header h1 {
+    font-size: 36px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+
+.header p {
+    font-size: 17px;
+    color: #6b7280;
+}
+
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card,
+.result-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+.card h2,
+.result-card h2 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+
+.description {
+    color: #6b7280;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   URL FORM
+   ========================= */
+
+form {
+    display: flex;
+    gap: 12px;
+}
+
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px 17px;
+    border: 2px solid #e5e7eb;
+    border-radius: 9px;
+    font-size: 16px;
+    outline: none;
+}
+
+
+input[type="text"]:focus {
+    border-color: #2563eb;
+}
+
+
+button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 9px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   URL DISPLAY
+   ========================= */
+
+.url-box {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.url-box span {
+    display: block;
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 7px;
+}
+
+
+.url-box p {
+    word-break: break-all;
+    font-weight: bold;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+
+.status-icon {
+    font-size: 35px;
+}
+
+
+.status h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+
+.status p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* Phishing */
+
+.status.phishing {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+
+.status.phishing h3 {
+    color: #dc2626;
+}
+
+
+.status.phishing p {
+    color: #7f1d1d;
+}
+
+
+/* Legitimate */
+
+.status.legitimate {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+}
+
+
+.status.legitimate h3 {
+    color: #16a34a;
+}
+
+
+.status.legitimate p {
+    color: #166534;
+}
+
+
+/* =========================
+   STATISTICS
+   ========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+
+.stat-box {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.stat-box span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+
+.stat-box strong {
+    font-size: 20px;
+    color: #111827;
+}
+
+
+/* =========================
+   REASONS
+   ========================= */
+
+.reasons {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 25px;
+}
+
+
+.reasons h3 {
+    margin-bottom: 15px;
+    font-size: 19px;
+}
+
+
+.reasons ul {
+    padding-left: 22px;
+}
+
+
+.reasons li {
+    margin-bottom: 11px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+
+    form {
+        flex-direction: column;
+    }
+
+
+    button {
+        width: 100%;
+    }
+
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .card,
+    .result-card {
+        padding: 20px;
+    }
+
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .status {
+        align-items: flex-start;
+    }
+
+}
+/* =========================
+   RISK METER
+   ========================= */
+
+.risk-meter {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+
+.risk-meter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+
+.risk-meter-header span {
+    font-weight: bold;
+    color: #374151;
+}
+
+
+.risk-meter-header strong {
+    font-size: 20px;
+    color: #111827;
+}
+
+
+.risk-bar {
+    width: 100%;
+    height: 18px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.risk-fill {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+
+.risk-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6b7280;
+}
+/* =========================
+   ABOUT SECTION
+   ========================= */
+
+.about-section {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+.about-section h2 {
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+
+.about-description {
+    text-align: center;
+    color: #6b7280;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+.about-card {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+}
+
+
+.about-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+
+.about-card h3 {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+
+.about-card p {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 750px) {
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================
+   ERROR MESSAGE
+   ========================= */
+
+.error-message {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    color: #9a3412;
+    padding: 15px 18px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 15px;
+    font-weight: bold;
+}
